@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button id="gen">生成密钥</button>
+  <h2 id="out"></h2>
+  <script>
+    document.getElementById('gen').onclick = async () => {
+      const r = await fetch('/api/generate', { method: 'POST' });
+      const d = await r.json();
+      document.getElementById('out').textContent = d.key;
+    };
+  </script>
+</body>
+</html>
